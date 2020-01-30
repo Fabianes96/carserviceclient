@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CarEditComponent } from './car-edit.component';
+import { CarEditComponent } from '../car-edit/car-edit.component';
 
 describe('CarEditComponent', () => {
   let component: CarEditComponent;

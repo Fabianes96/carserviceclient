@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CarListComponent } from './car-list/car-list.component';
-import { CarEditComponent } from './car-edit/car-edit.component';
-
+import { CarListComponent } from './components/car-list/car-list.component';
+import { CarEditComponent } from './components/car-edit/car-edit.component';
+import {CarOwnersComponent} from './components/car-owners/car-owners.component';
 const routes: Routes = [
-  { path: '', redirectTo: '/car-list', pathMatch: 'full' },
+  { path: '', redirectTo: '/components/car-list', pathMatch: 'full' },
   {
     path: 'car-list',
     component: CarListComponent
@@ -16,6 +16,10 @@ const routes: Routes = [
   {
     path: 'car-edit/:id',
     component: CarEditComponent
+  },
+  {
+    path: 'car-owners',
+    component: CarOwnersComponent
   }
 ];
 
