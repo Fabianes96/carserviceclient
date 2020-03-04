@@ -34,9 +34,11 @@ export class CarEditComponent implements OnInit, OnDestroy {
             console.log(`Car with id '${id}' not found, returning to list`);
             this.gotoList();
           }
+          console.log(car);
         });
       }
     });
+    console.log(this.sub)
   }
 
   ngOnDestroy() {

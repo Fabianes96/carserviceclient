@@ -2,14 +2,16 @@
     <mat-card-title>Car Owner</mat-card-title>
     <mat-card-content>
       <mat-list>
-        <mat-list-item *ngFor="let owner of owners">
+        
+        <mat-list-item *ngFor="let owner of owners, let indice=index">
           <img mat-list-avatar src="{{owner.giphyUrl}}" alt="{{owner.name}}">
           <h3 mat-line>
-            {{owner.name}}
+            <a mat-button [routerLink]="['/owner-edit', direccion[indice]]">{{owner.name}}</a>
+          
           </h3>
         </mat-list-item>
       </mat-list>
     </mat-card-content>
   
-    <button mat-fab color="primary" [routerLink]="['/car-add']">Add</button>
+    <button mat-fab color="primary" [routerLink]="['/owner-add']">Add</button>
   </mat-card>

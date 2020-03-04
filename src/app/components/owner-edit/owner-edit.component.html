@@ -1,0 +1,26 @@
+<mat-card>
+    <form #ownerForm="ngForm" (ngSubmit)="save(carForm.value)">
+      <mat-card-header>
+        <mat-card-title><h2>{{owner.name ? 'Edit' : 'Add'}} Owner</h2></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <input type="hidden" name="href" [(ngModel)]="owner.href">
+        <mat-form-field>
+          <input matInput placeholder="Owner Name" [(ngModel)]="owner.name"
+                 required name="name" #ownerName>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit"
+                [disabled]="!ownerForm.form.valid">Save</button>
+        <button mat-raised-button color="secondary" (click)="remove(owner.href)"
+                *ngIf="owner.href" type="button">Delete</button>
+        <a mat-button routerLink="/car-list">Cancel</a>
+      </mat-card-actions>
+      <mat-card-footer>
+        <div class="giphy">
+          <img src="{{owner.giphyUrl}}" alt="{{owner.name}}">
+        </div>
+      </mat-card-footer>
+    </form>
+  </mat-card>
