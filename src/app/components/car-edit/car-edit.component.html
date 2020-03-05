@@ -10,10 +10,17 @@
                  required name="name" #name/>
         </mat-form-field>
         <br>
-        <mat-form-field>
-          <input matInput placeholder="Owner Name"
-                 required name="owner" #owner/>
+        
+        <!-- <mat-form-field>
+          <input matInput placeholder="Owner Name" 
+                 required name="owner"/>
         </mat-form-field>
+        <br> -->
+        <mat-form-field>
+          <input matInput placeholder="Owner Dni" [(ngModel)]="car.ownerDni"
+                 name="ownerDni" #ownerDni/>
+        </mat-form-field>
+        
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button color="primary" type="submit"
@@ -28,4 +35,4 @@
         </div>
       </mat-card-footer>
     </form>
-  </mat-card>
+  </mat-card> 

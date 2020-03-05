@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CarService } from '../../shared/car/car.service';
 import { GiphyService } from '../../shared/giphy/giphy.service';
 import { OwnersService } from '../../shared/owners/owners.service';
 
