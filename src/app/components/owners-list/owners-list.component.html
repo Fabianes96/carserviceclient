@@ -1,18 +1,19 @@
 <mat-card>
-
     <mat-card-title>Car Owner</mat-card-title>
     <mat-card-content>
         <mat-list>
             <mat-list-item *ngFor="let owner of owners, let indice=index">
-                <img mat-list-avatar src="{{owner.giphyUrl}}" alt="{{owner.name}}">
-                <h3 mat-line>                                        
+                <img mat-list-avatar src="{{owner.giphyUrl}}" alt="{{owner.name}}" *ngIf="!deleted[indice]">
+                <h3 mat-line *ngIf="!deleted[indice]">                                        
                     <a mat-button [routerLink]="['/owner-edit', direccion[indice]]">{{owner.name}}</a>                    
                 </h3>
-                <input class="myitem" type="checkbox">
-                <!-- <label class="container">
-                    <input type="checkbox">
+                <!-- <input class="myitem" type="checkbox"> -->
+                <label class="container" *ngIf="!deleted[indice]">
+                    <input class="myitem" type="checkbox">
                     <span class="checkmark"></span>
-                </label> -->
+                </label>
+                <p *ngIf="deleted[indice]">Eliminando propietario...</p>
+
             </mat-list-item>
         </mat-list>
     </mat-card-content>

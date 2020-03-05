@@ -39,7 +39,6 @@ export class CarEditComponent implements OnInit, OnDestroy {
                 console.log(this.owner)
                 for (const own of this.owner) {                     
                   if (own.dni == car.ownerDni) {
-                    //this.owner.href = ownerData._embedded.owners._links.self.href;
                     this.json = { nameCar: car.name, ownerName: own.name, ownerDni: own.dni, ownerhref:own._links.self.href }
                     console.log(this.json)
                   }                  
@@ -57,7 +56,6 @@ export class CarEditComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-
     this.sub.unsubscribe();
   }
 
