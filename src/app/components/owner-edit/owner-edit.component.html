@@ -1,5 +1,5 @@
 <mat-card>
-    <form #ownerForm="ngForm" (ngSubmit)="save(carForm.value)">
+    <form #ownerForm="ngForm" (ngSubmit)="save(ownerForm.value)">
       <mat-card-header>
         <mat-card-title><h2>{{owner.name ? 'Edit' : 'Add'}} Owner</h2></mat-card-title>
       </mat-card-header>
@@ -15,7 +15,7 @@
                 [disabled]="!ownerForm.form.valid">Save</button>
         <button mat-raised-button color="secondary" (click)="remove(owner.href)"
                 *ngIf="owner.href" type="button">Delete</button>
-        <a mat-button routerLink="/car-list">Cancel</a>
+        <a mat-button routerLink="/owners-list">Cancel</a>
       </mat-card-actions>
       <mat-card-footer>
         <div class="giphy">

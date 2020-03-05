@@ -44,4 +44,18 @@ export class OwnerEditComponent implements OnInit {
     console.log("hola")
   }
 
+  gotoList() {
+    this.router.navigate(['/owners-list']);
+  }
+  save(form: NgForm) {
+    this.ownerService.save(form).subscribe(result => {
+      this.gotoList();
+    }, error => console.error(error));
+  }
+  remove(href) {
+    this.ownerService.remove(href).subscribe(result => {
+      this.gotoList();
+    }, error => console.error(error));
+  }
+
 } 

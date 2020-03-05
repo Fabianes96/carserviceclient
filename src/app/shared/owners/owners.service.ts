@@ -26,5 +26,8 @@ export class OwnersService {
     }
     return result;
   }
+  remove(href: string) {
+    return this.http.delete(href);
+  }
   
 }
