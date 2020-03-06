@@ -14,12 +14,15 @@ export class OwnersListComponent implements OnInit {
   owners: Array<any>;
   direccion: Array<string> = [];
   deleted: Array<boolean>=[];
+  check: boolean;
 
-  constructor(private ownerService: OwnersService, private giphyService: GiphyService, private router: Router,) { }
+  constructor(private ownerService: OwnersService, private giphyService: GiphyService, private router: Router) {   
+  }
 
   ngOnInit() {
-
+    this.check=false;
     this.ownerService.getOwners().subscribe(data => {
+      
       this.owners = data._embedded.owners;
       console.log(this.owners);
       //Foreach para capturar los indices
@@ -48,13 +51,14 @@ export class OwnersListComponent implements OnInit {
         if(element.checked){
           this.remove(this.owners[index]._links.self.href);
           this.deleted[index]= true;
+         
         }
     });   
 
     setTimeout(() => {
       this.deleted=[];
       this.ngOnInit()
-    }, 1000);
+    }, 2000);
     
 
     // rmvBtn.addEventListener('click', function () { var rmvCheckBoxes = document.getElementsByName('test');
@@ -67,4 +71,18 @@ export class OwnersListComponent implements OnInit {
     //   elm.parentElement.removeChild(elm);
     // }
   }
+  habilitar(){    
+    this.check=false;
+    var checkboxes :any=[]
+    //Obtener todos los checkbox
+    checkboxes = document.querySelectorAll('.myitem');  
+    //Se elimina cada owner que tenga "checked"    
+    checkboxes.forEach((element) => {
+        if(element.checked){          
+          this.check=true;
+        }
+    });  
+    
+  }
+  
 }

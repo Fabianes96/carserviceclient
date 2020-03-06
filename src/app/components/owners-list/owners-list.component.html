@@ -8,17 +8,19 @@
                     <a mat-button [routerLink]="['/owner-edit', direccion[indice]]">{{owner.name}}</a>                    
                 </h3>
                 <!-- <input class="myitem" type="checkbox"> -->
-                <label class="container" *ngIf="!deleted[indice]">
-                    <input class="myitem" type="checkbox">
+                <label class="container" *ngIf="!deleted[indice]" >
+                    <input class="myitem" type="checkbox" (click)="habilitar()">
                     <span class="checkmark"></span>
                 </label>
                 <p *ngIf="deleted[indice]">Eliminando propietario...</p>
-
             </mat-list-item>
         </mat-list>
     </mat-card-content>
-
     <button mat-fab color="primary" [routerLink]="['/owner-add']">Add</button>
-    <button mat-fab color="primary" (click)="deleteByCheckbox()"> Delete</button>
-
+    <button mat-fab color="primary" (click)="deleteByCheckbox()" [disabled]="!check"> Delete</button>
 </mat-card>
+
+
+
+
+

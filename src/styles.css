@@ -6,3 +6,9 @@ body {
   margin: 0;
   font-family: Roboto, sans-serif;
 }
+a{
+  color: black;
+}
+.active{
+  color:white
+}
