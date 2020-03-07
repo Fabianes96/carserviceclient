@@ -10,14 +10,21 @@ import { GiphyService } from '../../shared/giphy/giphy.service';
 export class CarListComponent implements OnInit {
 
   cars: Array<any>
+  control: boolean = true;
   constructor(private carService: CarService, private giphyService: GiphyService) { }
 
   ngOnInit() {
     this.carService.getAll().subscribe(data => {
       this.cars = data;
-      for (const car of this.cars) {
-        this.giphyService.get(car.name).subscribe(url => car.giphyUrl = url);  
-      }          
+      //Control que indica si hay carros
+      if (this.cars.length == 0) {
+        this.control = false;
+      }
+      else {
+        for (const car of this.cars) {
+          this.giphyService.get(car.name).subscribe(url => car.giphyUrl = url);
+        }
+      }
     });
   }
 }

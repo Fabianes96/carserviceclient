@@ -33,14 +33,14 @@ export class CarEditComponent implements OnInit, OnDestroy {
             this.car = car;
             this.car.href = car._links.self.href;
             this.giphyService.get(car.name).subscribe(url => car.giphyUrl = url);
+            //Buscar en propietarios los Dni
             this.ownerService.getOwners().subscribe((ownerData: any) => {              
               if (ownerData) {
-                this.owner = ownerData._embedded.owners;
-                console.log(this.owner)
-                for (const own of this.owner) {                     
+                this.owner = ownerData._embedded.owners;                
+                for (const own of this.owner) { 
+                  //Si los dni de car y owner son iguales, se guarda la información en un json                    
                   if (own.dni == car.ownerDni) {
-                    this.json = { nameCar: car.name, ownerName: own.name, ownerDni: own.dni, ownerhref:own._links.self.href }
-                    console.log(this.json)
+                    this.json = { nameCar: car.name, ownerName: own.name, ownerDni: own.dni, ownerhref:own._links.self.href }                    
                   }                  
                 }
               }
@@ -51,8 +51,7 @@ export class CarEditComponent implements OnInit, OnDestroy {
           }          
         });
       }
-    });
-    console.log(this.sub)
+    });    
   }
 
   ngOnDestroy() {
@@ -65,7 +64,6 @@ export class CarEditComponent implements OnInit, OnDestroy {
 
   save(form: NgForm) {
     this.carService.save(form).subscribe(result => { 
-        console.log(form.value)    
         this.gotoList();
      
     }, error => console.error(error));

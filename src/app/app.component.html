@@ -1,6 +1,6 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" [ngStyle]="{'display':'flex', 'justify-content':'space-between'}">
   <span>Welcome to {{title}}!</span>
-  <div [ngStyle]="{'margin-left': '50%'}">
+  <div>
     <a [routerLink]="['/car-list']"[routerLinkActive]="['active']" >Car List</a>
     &nbsp;
     <a [routerLink]="['/owners-list']"[routerLinkActive]="['active']" >Owners List</a>
